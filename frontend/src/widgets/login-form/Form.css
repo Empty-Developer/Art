@@ -1,0 +1,24 @@
+.paper-style-form {
+  width: 400px !important;
+  padding: 50px !important;
+  border: 1px solid #000 !important;
+  margin: 10% auto !important;
+}
+
+.text-title-form {
+  text-align: center !important;
+  font-family: "Regular" !important;
+  margin-bottom: 30px !important;
+  font-size: 30px !important;
+}
+
+.form-input {
+  margin-bottom: 30px !important;
+  border-radius: none !important;
+}
+
+.button-form {
+  background-color: #FF52BA !important;
+  color: #000 !important;
+  font-family: "Bold" !important;
+}
