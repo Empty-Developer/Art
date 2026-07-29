@@ -3,7 +3,6 @@ import XIcon from '@mui/icons-material/X';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import logo from '../../shared/img/logo.png'
 import './Header.css'
-import Button from '../../shared/ui/button/Button';
 
 export default function Header() {
 
@@ -22,10 +21,7 @@ export default function Header() {
           <a href="#"><XIcon /></a>
           <a href="#"><TelegramIcon /></a>
         </div>
-        {/* <a className='link-in-auth' href="#">Quick Start</a> */}
-        <Button>
-          Quick Start
-        </Button>
+        <a className='link-in-auth' href="#">Quick Start</a>
       </header>
     </>
   )
