@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 .title-main {
   font-family: "Bold";
@@ -20,4 +19,10 @@
   margin-bottom: 40px;
   text-transform: uppercase;
   color: #3B3B3B;
+}
+
+@media screen and (max-width: 750px) {
+  .container-main{
+    display: none;
+  }
 }
