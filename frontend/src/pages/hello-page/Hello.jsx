@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../../widgets/header/Header'
 import ColorBends from '../../shared/ui/background/ColorBends'
+import MainInfo from '../../widgets/main-info/Main-Info'
 
 export default function Hello() {
   return (
@@ -24,6 +25,7 @@ export default function Hello() {
         color="#A855F7"
       />
       <Header />
+      <MainInfo />
     </div>
     </>
   )

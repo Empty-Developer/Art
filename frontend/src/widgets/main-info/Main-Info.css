@@ -1,0 +1,23 @@
+.container-main {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.title-main {
+  font-family: "Bold";
+  font-size: 80px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  color: #464646;
+  text-transform: uppercase;
+}
+.description-main {
+  font-family: "Regular";
+  font-size: 20px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  color: #3B3B3B;
+}
