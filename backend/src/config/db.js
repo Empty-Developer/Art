@@ -1,12 +1,24 @@
-const { Pool } = require("pg")
-require("dotenv").config()
+import { PrismaClient } from "@prisma/client";
 
-const pool = new Pool({
-  host: process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-})
+const prisma = new PrismaClient({
+  log:
+    process.env.NODE_ENV === "development"
+      ? ["query", "error", "warn"]
+      : ["error"],
+});
 
-module.exports = pool
+const connectDB = async () => {
+  try {
+    await prisma.$connect();
+    console.log("connect completed!");
+  } catch (error) {
+    console.error(`not connect! ${error}`);
+    process.exit(1);
+  }
+};
+
+const disconnectDB = async () => {
+  await prisma.$disconnect();
+};
+
+export { prisma, connectDB, disconnectDB };

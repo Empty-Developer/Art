@@ -1,21 +1,26 @@
-require("dotenv").config();
+import { config } from "dotenv";
+config();
+import app from "./app.js";
+import { connectDB, disconnectDB } from "./config/db.js";
 
-const app = require("./app");
-const pool = require("./config/db");
-
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8001;
 
 async function start() {
-  try {
-    await pool.query("SELECT NOW()")
-    console.log("postgreSQL connect")
+  await connectDB();
 
-    app.listen(PORT, () => {
-      console.log(`server connect witch port: ${PORT}`)
-    })
-  } catch (error) {
-    console.error("error server",error.message);
-  }
+  app.listen(PORT, () => {
+    console.log(`server started on http://localhost:${PORT}`);
+  });
 }
 
 start();
+
+process.on("SIGINT", async () => {
+  await disconnectDB();
+  process.exit(0);
+});
+
+process.on("SIGTERM", async () => {
+  await disconnectDB();
+  process.exit(0);
+});
