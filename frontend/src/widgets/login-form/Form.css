@@ -3,6 +3,8 @@
   padding: 50px !important;
   border: 1px solid #000 !important;
   margin: 10% auto !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
 }
 
 .text-title-form {
@@ -21,4 +23,5 @@
   background-color: #FF52BA !important;
   color: #000 !important;
   font-family: "Bold" !important;
+  border-radius: 0px !important;
 }

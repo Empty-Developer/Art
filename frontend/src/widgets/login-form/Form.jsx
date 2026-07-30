@@ -32,6 +32,7 @@ export default function Form() {
       </Typography>
       <form>
         <TextField
+          color='#000000ff'
           className='form-input'
           label="Full Name"
           fullWidth
@@ -39,13 +40,14 @@ export default function Form() {
           variant='standard'
         />
         <TextField
+          color='#000000ff'
           className='form-input'
           label="E-Mail"
           fullWidth
           type="email"
           variant='standard'
         />
-        <FormControl className='form-input' sx={{ m: 0, width: '30ch' }} variant="standard">
+        <FormControl className='form-input' sx={{ m: 0, width: '30ch' }} variant="standard" color='#000000ff'>
           <InputLabel htmlFor={`${standardPasswordId}-input`}>Password</InputLabel>
           <Input
             id={`${standardPasswordId}-input`}

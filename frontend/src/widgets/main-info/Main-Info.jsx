@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../shared/ui/button/Button";
 import "./Main-Info.css"
 export default function MainInfo() {
+
   return (
     <>
       <main className="container-main">
