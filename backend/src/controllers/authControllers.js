@@ -46,7 +46,9 @@ const registration = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(501);
+    return res.status(500).json({
+      error: "Internal server error",
+    });
   }
 };
 
@@ -86,7 +88,10 @@ const login = async (req, res) => {
     });
 
   } catch (error) {
-    res.status(501);
+
+    return res.status(500).json({
+      error: "Internal server error",
+    });
   }
 }
 
