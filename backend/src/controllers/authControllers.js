@@ -1,5 +1,7 @@
+import { error } from "node:console";
 import { prisma } from "../config/db.js";
 import bcrypt from "bcryptjs";
+import {generateToken} from "../utils/generateToken.js"
 
 const registration = async (req, res) => {
   try {
@@ -29,6 +31,9 @@ const registration = async (req, res) => {
       },
     });
 
+    // generate jwt token
+    const token = generateToken(user.id)
+
     res.status(201).json({
       status: "success",
       data: {
@@ -37,11 +42,52 @@ const registration = async (req, res) => {
           name: name,
           email: email,
         },
+        token,
       },
     });
   } catch (error) {
-    res.status(401);
+    res.status(501);
   }
 };
 
-export { registration };
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // check if user email exists in the table
+    const user = await prisma.user.findUnique({
+      where: { email: email },
+    });
+
+    if (!user) {
+      return res
+        .status(400)
+        .json({ error: "invalid email or password" });
+    }
+
+    // check if user password
+    const isPasswordValid = await bcrypt.compare(password, user.password)
+    if (!isPasswordValid) {
+      return res.status(400).json({error: "invalid email or password"})
+    }
+
+    // generate jwt token
+    const token = generateToken(user.id)
+
+    res.status(201).json({
+      status: "success",
+      data: {
+        user: {
+          id: user.id,
+          email: email,
+        },
+        token,
+      },
+    });
+
+  } catch (error) {
+    res.status(501);
+  }
+}
+
+export { registration, login };
