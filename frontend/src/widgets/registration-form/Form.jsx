@@ -11,8 +11,26 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Registration from "./api/auth.js"
 
 export default function Form() {
+  // type input for rest api
+  const [name, setName] = React.useState("")
+  const [email, setEmail] = React.useState("")
+  const [password, setPassword] = React.useState("")
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const data = await Registration({
+      name,
+      email,
+      password,
+    })
+
+    console.log(data);
+  }
+
   const standardPasswordId = React.useId();
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -30,8 +48,12 @@ export default function Form() {
       <Typography className='text-title-form'>
         Create Account.
       </Typography>
-      <form>
+      <form
+        onSubmit={handleSubmit}
+      >
         <TextField
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           color='#000000ff'
           className='form-input'
           label="Full Name"
@@ -40,6 +62,8 @@ export default function Form() {
           variant='standard'
         />
         <TextField
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           color='#000000ff'
           className='form-input'
           label="E-Mail"
@@ -50,6 +74,8 @@ export default function Form() {
         <FormControl className='form-input' sx={{ m: 0, width: '30ch' }} variant="standard" color='#000000ff'>
           <InputLabel htmlFor={`${standardPasswordId}-input`}>Password</InputLabel>
           <Input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             id={`${standardPasswordId}-input`}
             type={showPassword ? 'text' : 'password'}
             endAdornment={

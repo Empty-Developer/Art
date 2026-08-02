@@ -1,6 +1,6 @@
 import React from 'react'
-import Paper from '../../widgets/login-form/Form'
-import ColorBends from '../../shared/ui/background/ColorBends'
+import Form from '../../widgets/registration-form/Form.jsx'
+import ColorBends from '../../shared/ui/background/ColorBends.jsx'
 
 export default function Registration() {
   return (
@@ -23,7 +23,7 @@ export default function Registration() {
           autoRotate={0}
           color="#A855F7"
         />
-        <Paper />
+        <Form />
       </div>
     </>
   )
