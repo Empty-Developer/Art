@@ -32,7 +32,7 @@ const registration = async (req, res) => {
     });
 
     // generate jwt token
-    const token = generateToken(user.id)
+    const token = generateToken(user.id, res)
 
     res.status(201).json({
       status: "success",
@@ -74,7 +74,7 @@ const login = async (req, res) => {
     }
 
     // generate jwt token
-    const token = generateToken(user.id)
+    const token = generateToken(user.id, res)
 
     res.status(201).json({
       status: "success",
@@ -95,4 +95,16 @@ const login = async (req, res) => {
   }
 }
 
-export { registration, login };
+const logout = async (req, res) => {
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expires: new Date(0)
+  })
+
+  res.status(200).json({
+    status: "success",
+    message: "logout success"
+  })
+}
+
+export { registration, login, logout };
