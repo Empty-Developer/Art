@@ -14,14 +14,14 @@ export default function Header() {
           <p className='title-logo'>Art.Pic.Up Auction</p>
         </div>
         <ul className='link-header'>
-          <li><a href="#" className='information-link'>Information</a></li>
-          <li><a href="#">Roles</a></li>
+          <li><a href="/information" className='information-link'>Information</a></li>
+          <li><a href="/roles">Roles</a></li>
         </ul>
         <div className='icon-container'>
-          <a href="#"><XIcon /></a>
-          <a href="#"><TelegramIcon /></a>
+          <a href="https://x.com/home"><XIcon /></a>
+          <a href="https://t.me/empty_work"><TelegramIcon /></a>
         </div>
-        <a className='link-in-auth' href="#">Quick Start</a>
+        <a className='link-in-auth' href="/registration">Quick Start</a>
       </header>
     </>
   )

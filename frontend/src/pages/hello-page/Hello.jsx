@@ -1,7 +1,8 @@
 import React from 'react'
-import Header from '../../widgets/header/Header'
-import ColorBends from '../../shared/ui/background/ColorBends'
-import MainInfo from '../../widgets/main-info/Main-Info'
+import Header from '../../widgets/header/Header.jsx'
+import ColorBends from '../../shared/ui/background/ColorBends.jsx'
+import MainInfo from '../../widgets/main-info/Main-Info.jsx'
+import Picture from '../../widgets/picture-block/Picture-block.jsx';
 
 export default function Hello() {
   return (
@@ -26,6 +27,7 @@ export default function Hello() {
       />
       <Header />
       <MainInfo />
+      <Picture />
     </div>
     </>
   )

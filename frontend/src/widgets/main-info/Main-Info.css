@@ -21,6 +21,21 @@
   color: #3B3B3B;
 }
 
+.button-main {
+  background-color: #FF52BA;
+  border: none;
+  color: #000000;
+  padding: 10px 20px;
+  font-family: "Bold";
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button-main:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
 @media screen and (max-width: 750px) {
   .container-main{
     display: none;

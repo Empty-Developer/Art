@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../../shared/ui/button/Button";
 import "./Main-Info.css"
+import { Link } from 'react-router-dom';
 export default function MainInfo() {
 
   return (
@@ -13,7 +13,7 @@ export default function MainInfo() {
             have any paintings?<br/>DO YOU? Upload them to the site and start<br/>making
             money.
           </h4>
-          <Button className="button-main">START NOW</Button>
+          <Link className="button-main" to="/registration">START NOW</Link>
         </div>
       </main>
     </>
