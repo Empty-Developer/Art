@@ -250,18 +250,18 @@ export type PictureOrderByWithRelationInput = {
 
 export type PictureWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  pictureUrl?: string
   AND?: Prisma.PictureWhereInput | Prisma.PictureWhereInput[]
   OR?: Prisma.PictureWhereInput[]
   NOT?: Prisma.PictureWhereInput | Prisma.PictureWhereInput[]
   createdAt?: Prisma.DateTimeFilter<"Picture"> | Date | string
   title?: Prisma.StringFilter<"Picture"> | string
-  pictureUrl?: Prisma.StringFilter<"Picture"> | string
   price?: Prisma.IntFilter<"Picture"> | number
   isSold?: Prisma.BoolFilter<"Picture"> | boolean
   ownerId?: Prisma.StringFilter<"Picture"> | string
   owner?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   purchase?: Prisma.XOR<Prisma.PurchaseNullableScalarRelationFilter, Prisma.PurchaseWhereInput> | null
-}, "id">
+}, "id" | "pictureUrl">
 
 export type PictureOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

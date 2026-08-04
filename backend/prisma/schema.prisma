@@ -23,7 +23,7 @@ model Picture {
   id String @id @default(ulid())
   createdAt DateTime @default(now())
   title String
-  pictureUrl String
+  pictureUrl String @unique
   price Int
   isSold Boolean @default(false)
   ownerId String // id user picture
