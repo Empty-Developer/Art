@@ -2,13 +2,36 @@ import { error } from "node:console";
 import { prisma } from "../config/db.js";
 import bcrypt from "bcryptjs";
 
-// const getAllPicture = async (req, res) => {
-//   try {
-    
-//   } catch (error) {
-    
-//   }
-// }
+const getAllPicture = async (req, res) => {
+  try {
+    const pictures = await prisma.picture.findMany({
+      include: {
+        owner: {
+          select:{
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    })
+
+    res.status(200).json({
+      status: "success",
+      results: pictures.length,
+      data: {
+        pictures,
+      },
+    })
+  } catch (error) {
+    return res.status(500).json({
+      error: "Internal server error",
+    })
+  }
+}
 
 const createPicture = async (req, res) => {
   try {
@@ -52,4 +75,4 @@ const createPicture = async (req, res) => {
   }
 }
 
-export { createPicture };
+export { createPicture, getAllPicture };
