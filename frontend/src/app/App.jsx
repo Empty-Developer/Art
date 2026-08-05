@@ -1,5 +1,6 @@
 import React from "react";
 import Hello from "../pages/hello-page/Hello.jsx";
+import Main from "../pages/main/Main.jsx";
 import { Routes, Route } from "react-router-dom";
 import Registration from "../pages/auth/Registration.jsx";
 import Login from "../pages/auth/Login.jsx";
@@ -12,6 +13,7 @@ export default function App() {
           <Route path="/" element={<Hello />} />
           <Route path="/registration" element={<Registration />}/>
           <Route path="/login" element={<Login />}/>
+          <Route path="/main" element={<Main />}/>
         </Routes>
       </div>
     </>

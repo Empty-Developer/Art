@@ -1,0 +1,16 @@
+.header-block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 7%;
+  height: fit-content;
+}
+
+.logout-button {
+  background-color: rgb(240, 59, 59);
+}
+
+.basket-button {
+  background-color: rgb(225, 225, 225);
+}

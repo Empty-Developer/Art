@@ -1,0 +1,13 @@
+.logo-image {
+  width: 26px;
+  height: 26px;
+}
+.title-logo {
+  font-weight: 600;
+  margin: 0 10px;
+  font-family: "Medium";
+}
+.logo-container {
+  display: flex;
+  cursor: pointer;
+}
