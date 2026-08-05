@@ -21,75 +21,75 @@ code {
 @font-face {
   font-family: "Black";
   src: local("MontserratBlack"),
-    url("./shared//font/Montserrat-Black.ttf") format("truetype")
+    url("./entities/font/Montserrat-Black.ttf") format("truetype")
 }
 @font-face {
   font-family: "BlackItalic";
   src: local("MontserratBlackItalic"),
-    url("./shared//font/Montserrat-BlackItalic.ttf") format("truetype")
+    url("./entities/font/Montserrat-BlackItalic.ttf") format("truetype")
 }
 @font-face {
   font-family: "Bold";
   src: local("MontserratBold"),
-    url("./shared//font/Montserrat-Bold.ttf") format("truetype")
+    url("./entities/font/Montserrat-Bold.ttf") format("truetype")
 }
 @font-face {
   font-family: "BoldItalic";
   src: local("MontserratBoldItalic"),
-    url("./shared//font/Montserrat-BoldItalic.ttf") format("truetype")
+    url("./entities/font/Montserrat-BoldItalic.ttf") format("truetype")
 }
 @font-face {
   font-family: "ExtraBold";
   src: local("MontserratExtraBold"),
-    url("./shared//font/Montserrat-ExtraBold.ttf") format("truetype")
+    url("./entities/font/Montserrat-ExtraBold.ttf") format("truetype")
 }
 @font-face {
   font-family: "ExtraBoldItalic";
   src: local("MontserratExtraBoldItalic"),
-    url("./shared//font/Montserrat-ExtraBoldItalic.ttf") format("truetype")
+    url("./entities/font/Montserrat-ExtraBoldItalic.ttf") format("truetype")
 }
 @font-face {
   font-family: "Light";
   src: local("MontserratLight"),
-    url("./shared//font/Montserrat-Light.ttf") format("truetype")
+    url("./entities/font/Montserrat-Light.ttf") format("truetype")
 }
 @font-face {
   font-family: "LightItalic";
   src: local("MontserratLightItalic"),
-    url("./shared//font/Montserrat-LightItalic.ttf") format("truetype")
+    url("./entities/font/Montserrat-LightItalic.ttf") format("truetype")
 }
 @font-face {
   font-family: "Medium";
   src: local("MontserratMedium"),
-    url("./shared//font/Montserrat-Medium.ttf") format("truetype")
+    url("./entities/font/Montserrat-Medium.ttf") format("truetype")
 }
 @font-face {
   font-family: "MediumItalic";
   src: local("MontserratMediumItalic"),
-    url("./shared//font/Montserrat-MediumItalic.ttf") format("truetype")
+    url("./entities/font/Montserrat-MediumItalic.ttf") format("truetype")
 }
 @font-face {
   font-family: "Regular";
   src: local("MontserratRegular"),
-    url("./shared//font/Montserrat-Regular.ttf") format("truetype")
+    url("./entities/font/Montserrat-Regular.ttf") format("truetype")
 }
 @font-face {
   font-family: "SemiBold";
   src: local("MontserratSemiBold"),
-    url("./shared//font/Montserrat-SemiBold.ttf") format("truetype")
+    url("./entities/font/Montserrat-SemiBold.ttf") format("truetype")
 }
 @font-face {
   font-family: "SemiBoldItalic";
   src: local("MontserratSemiBoldItalic"),
-    url("./shared//font/Montserrat-SemiBoldItalic.ttf") format("truetype")
+    url("./entities/font/Montserrat-SemiBoldItalic.ttf") format("truetype")
 }
 @font-face {
   font-family: "Thin";
   src: local("MontserratThin"),
-    url("./shared//font/Montserrat-Thin.ttf") format("truetype")
+    url("./entities/font/Montserrat-Thin.ttf") format("truetype")
 }
 @font-face {
   font-family: "ThinItalic";
   src: local("MontserratThinItalic"),
-    url("./shared//font/Montserrat-ThinItalic.ttf") format("truetype")
+    url("./entities/font/Montserrat-ThinItalic.ttf") format("truetype")
 }

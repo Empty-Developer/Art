@@ -1,7 +1,7 @@
 import React from 'react'
 import XIcon from '@mui/icons-material/X';
 import TelegramIcon from '@mui/icons-material/Telegram';
-import logo from '../../shared/img/logo.png'
+import logo from '../../entities/img/logo.png'
 import './Header.css'
 
 export default function Header() {
