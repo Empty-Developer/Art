@@ -59,3 +59,13 @@ export type Picture = Prisma.PictureModel
  * 
  */
 export type Purchase = Prisma.PurchaseModel
+/**
+ * Model BasketItem
+ * 
+ */
+export type BasketItem = Prisma.BasketItemModel
+/**
+ * Model Basket
+ * 
+ */
+export type Basket = Prisma.BasketModel

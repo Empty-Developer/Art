@@ -9,35 +9,55 @@ datasource db {
 }
 
 model User {
-  id String @id @default(ulid())
+  id        String   @id @default(ulid())
   createdAt DateTime @default(now())
-  name String
-  email String @unique
-  password String
+  name      String
+  email     String   @unique
+  password  String
 
-  pictures Picture[]
+  pictures  Picture[]
   purchases Purchase[]
+  basket    Basket?
 }
 
 model Picture {
-  id String @id @default(ulid())
-  createdAt DateTime @default(now())
-  title String
-  pictureUrl String @unique
-  price Int
-  isSold Boolean @default(false)
-  ownerId String // id user picture
-  owner User @relation(fields: [ownerId], references: [id]) // create join picture witch user
+  id         String   @id @default(ulid())
+  createdAt  DateTime @default(now())
+  title      String
+  pictureUrl String   @unique
+  price      Int
+  isSold     Boolean  @default(false)
+  ownerId    String // id user picture
+  owner      User     @relation(fields: [ownerId], references: [id]) // create join picture witch user
 
-  purchase Purchase?
+  purchase    Purchase?
+  basketItems BasketItem[]
 }
 
 model Purchase {
-  id String @id @default(ulid())
+  id        String   @id @default(ulid())
   createdAt DateTime @default(now())
-  buyerId String
-  buyer User @relation(fields: [buyerId], references: [id])
-  pictureId String @unique
-  picture Picture @relation(fields: [pictureId], references: [id])
-  price Int
+  buyerId   String
+  buyer     User     @relation(fields: [buyerId], references: [id])
+  pictureId String   @unique
+  picture   Picture  @relation(fields: [pictureId], references: [id])
+  price     Int
+}
+
+model BasketItem {
+  id        String  @id @default(ulid())
+  basketId  String
+  basket    Basket  @relation(fields: [basketId], references: [id])
+  pictureId String
+  picture   Picture @relation(fields: [pictureId], references: [id])
+
+  @@unique([basketId, pictureId])
+}
+
+model Basket {
+  id        String       @id @default(ulid())
+  createdAt DateTime     @default(now())
+  userId    String       @unique
+  user      User         @relation(fields: [userId], references: [id])
+  items     BasketItem[]
 }

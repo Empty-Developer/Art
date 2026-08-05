@@ -234,6 +234,7 @@ export type PictureWhereInput = {
   ownerId?: Prisma.StringFilter<"Picture"> | string
   owner?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   purchase?: Prisma.XOR<Prisma.PurchaseNullableScalarRelationFilter, Prisma.PurchaseWhereInput> | null
+  basketItems?: Prisma.BasketItemListRelationFilter
 }
 
 export type PictureOrderByWithRelationInput = {
@@ -246,6 +247,7 @@ export type PictureOrderByWithRelationInput = {
   ownerId?: Prisma.SortOrder
   owner?: Prisma.UserOrderByWithRelationInput
   purchase?: Prisma.PurchaseOrderByWithRelationInput
+  basketItems?: Prisma.BasketItemOrderByRelationAggregateInput
 }
 
 export type PictureWhereUniqueInput = Prisma.AtLeast<{
@@ -261,6 +263,7 @@ export type PictureWhereUniqueInput = Prisma.AtLeast<{
   ownerId?: Prisma.StringFilter<"Picture"> | string
   owner?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   purchase?: Prisma.XOR<Prisma.PurchaseNullableScalarRelationFilter, Prisma.PurchaseWhereInput> | null
+  basketItems?: Prisma.BasketItemListRelationFilter
 }, "id" | "pictureUrl">
 
 export type PictureOrderByWithAggregationInput = {
@@ -300,6 +303,7 @@ export type PictureCreateInput = {
   isSold?: boolean
   owner: Prisma.UserCreateNestedOneWithoutPicturesInput
   purchase?: Prisma.PurchaseCreateNestedOneWithoutPictureInput
+  basketItems?: Prisma.BasketItemCreateNestedManyWithoutPictureInput
 }
 
 export type PictureUncheckedCreateInput = {
@@ -311,6 +315,7 @@ export type PictureUncheckedCreateInput = {
   isSold?: boolean
   ownerId: string
   purchase?: Prisma.PurchaseUncheckedCreateNestedOneWithoutPictureInput
+  basketItems?: Prisma.BasketItemUncheckedCreateNestedManyWithoutPictureInput
 }
 
 export type PictureUpdateInput = {
@@ -322,6 +327,7 @@ export type PictureUpdateInput = {
   isSold?: Prisma.BoolFieldUpdateOperationsInput | boolean
   owner?: Prisma.UserUpdateOneRequiredWithoutPicturesNestedInput
   purchase?: Prisma.PurchaseUpdateOneWithoutPictureNestedInput
+  basketItems?: Prisma.BasketItemUpdateManyWithoutPictureNestedInput
 }
 
 export type PictureUncheckedUpdateInput = {
@@ -333,6 +339,7 @@ export type PictureUncheckedUpdateInput = {
   isSold?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   purchase?: Prisma.PurchaseUncheckedUpdateOneWithoutPictureNestedInput
+  basketItems?: Prisma.BasketItemUncheckedUpdateManyWithoutPictureNestedInput
 }
 
 export type PictureCreateManyInput = {
@@ -485,6 +492,20 @@ export type PictureUpdateOneRequiredWithoutPurchaseNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PictureUpdateToOneWithWhereWithoutPurchaseInput, Prisma.PictureUpdateWithoutPurchaseInput>, Prisma.PictureUncheckedUpdateWithoutPurchaseInput>
 }
 
+export type PictureCreateNestedOneWithoutBasketItemsInput = {
+  create?: Prisma.XOR<Prisma.PictureCreateWithoutBasketItemsInput, Prisma.PictureUncheckedCreateWithoutBasketItemsInput>
+  connectOrCreate?: Prisma.PictureCreateOrConnectWithoutBasketItemsInput
+  connect?: Prisma.PictureWhereUniqueInput
+}
+
+export type PictureUpdateOneRequiredWithoutBasketItemsNestedInput = {
+  create?: Prisma.XOR<Prisma.PictureCreateWithoutBasketItemsInput, Prisma.PictureUncheckedCreateWithoutBasketItemsInput>
+  connectOrCreate?: Prisma.PictureCreateOrConnectWithoutBasketItemsInput
+  upsert?: Prisma.PictureUpsertWithoutBasketItemsInput
+  connect?: Prisma.PictureWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PictureUpdateToOneWithWhereWithoutBasketItemsInput, Prisma.PictureUpdateWithoutBasketItemsInput>, Prisma.PictureUncheckedUpdateWithoutBasketItemsInput>
+}
+
 export type PictureCreateWithoutOwnerInput = {
   id?: string
   createdAt?: Date | string
@@ -493,6 +514,7 @@ export type PictureCreateWithoutOwnerInput = {
   price: number
   isSold?: boolean
   purchase?: Prisma.PurchaseCreateNestedOneWithoutPictureInput
+  basketItems?: Prisma.BasketItemCreateNestedManyWithoutPictureInput
 }
 
 export type PictureUncheckedCreateWithoutOwnerInput = {
@@ -503,6 +525,7 @@ export type PictureUncheckedCreateWithoutOwnerInput = {
   price: number
   isSold?: boolean
   purchase?: Prisma.PurchaseUncheckedCreateNestedOneWithoutPictureInput
+  basketItems?: Prisma.BasketItemUncheckedCreateNestedManyWithoutPictureInput
 }
 
 export type PictureCreateOrConnectWithoutOwnerInput = {
@@ -552,6 +575,7 @@ export type PictureCreateWithoutPurchaseInput = {
   price: number
   isSold?: boolean
   owner: Prisma.UserCreateNestedOneWithoutPicturesInput
+  basketItems?: Prisma.BasketItemCreateNestedManyWithoutPictureInput
 }
 
 export type PictureUncheckedCreateWithoutPurchaseInput = {
@@ -562,6 +586,7 @@ export type PictureUncheckedCreateWithoutPurchaseInput = {
   price: number
   isSold?: boolean
   ownerId: string
+  basketItems?: Prisma.BasketItemUncheckedCreateNestedManyWithoutPictureInput
 }
 
 export type PictureCreateOrConnectWithoutPurchaseInput = {
@@ -588,6 +613,7 @@ export type PictureUpdateWithoutPurchaseInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   isSold?: Prisma.BoolFieldUpdateOperationsInput | boolean
   owner?: Prisma.UserUpdateOneRequiredWithoutPicturesNestedInput
+  basketItems?: Prisma.BasketItemUpdateManyWithoutPictureNestedInput
 }
 
 export type PictureUncheckedUpdateWithoutPurchaseInput = {
@@ -598,6 +624,67 @@ export type PictureUncheckedUpdateWithoutPurchaseInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   isSold?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ownerId?: Prisma.StringFieldUpdateOperationsInput | string
+  basketItems?: Prisma.BasketItemUncheckedUpdateManyWithoutPictureNestedInput
+}
+
+export type PictureCreateWithoutBasketItemsInput = {
+  id?: string
+  createdAt?: Date | string
+  title: string
+  pictureUrl: string
+  price: number
+  isSold?: boolean
+  owner: Prisma.UserCreateNestedOneWithoutPicturesInput
+  purchase?: Prisma.PurchaseCreateNestedOneWithoutPictureInput
+}
+
+export type PictureUncheckedCreateWithoutBasketItemsInput = {
+  id?: string
+  createdAt?: Date | string
+  title: string
+  pictureUrl: string
+  price: number
+  isSold?: boolean
+  ownerId: string
+  purchase?: Prisma.PurchaseUncheckedCreateNestedOneWithoutPictureInput
+}
+
+export type PictureCreateOrConnectWithoutBasketItemsInput = {
+  where: Prisma.PictureWhereUniqueInput
+  create: Prisma.XOR<Prisma.PictureCreateWithoutBasketItemsInput, Prisma.PictureUncheckedCreateWithoutBasketItemsInput>
+}
+
+export type PictureUpsertWithoutBasketItemsInput = {
+  update: Prisma.XOR<Prisma.PictureUpdateWithoutBasketItemsInput, Prisma.PictureUncheckedUpdateWithoutBasketItemsInput>
+  create: Prisma.XOR<Prisma.PictureCreateWithoutBasketItemsInput, Prisma.PictureUncheckedCreateWithoutBasketItemsInput>
+  where?: Prisma.PictureWhereInput
+}
+
+export type PictureUpdateToOneWithWhereWithoutBasketItemsInput = {
+  where?: Prisma.PictureWhereInput
+  data: Prisma.XOR<Prisma.PictureUpdateWithoutBasketItemsInput, Prisma.PictureUncheckedUpdateWithoutBasketItemsInput>
+}
+
+export type PictureUpdateWithoutBasketItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  pictureUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.IntFieldUpdateOperationsInput | number
+  isSold?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  owner?: Prisma.UserUpdateOneRequiredWithoutPicturesNestedInput
+  purchase?: Prisma.PurchaseUpdateOneWithoutPictureNestedInput
+}
+
+export type PictureUncheckedUpdateWithoutBasketItemsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  pictureUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  price?: Prisma.IntFieldUpdateOperationsInput | number
+  isSold?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
+  purchase?: Prisma.PurchaseUncheckedUpdateOneWithoutPictureNestedInput
 }
 
 export type PictureCreateManyOwnerInput = {
@@ -617,6 +704,7 @@ export type PictureUpdateWithoutOwnerInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   isSold?: Prisma.BoolFieldUpdateOperationsInput | boolean
   purchase?: Prisma.PurchaseUpdateOneWithoutPictureNestedInput
+  basketItems?: Prisma.BasketItemUpdateManyWithoutPictureNestedInput
 }
 
 export type PictureUncheckedUpdateWithoutOwnerInput = {
@@ -627,6 +715,7 @@ export type PictureUncheckedUpdateWithoutOwnerInput = {
   price?: Prisma.IntFieldUpdateOperationsInput | number
   isSold?: Prisma.BoolFieldUpdateOperationsInput | boolean
   purchase?: Prisma.PurchaseUncheckedUpdateOneWithoutPictureNestedInput
+  basketItems?: Prisma.BasketItemUncheckedUpdateManyWithoutPictureNestedInput
 }
 
 export type PictureUncheckedUpdateManyWithoutOwnerInput = {
@@ -639,6 +728,35 @@ export type PictureUncheckedUpdateManyWithoutOwnerInput = {
 }
 
 
+/**
+ * Count Type PictureCountOutputType
+ */
+
+export type PictureCountOutputType = {
+  basketItems: number
+}
+
+export type PictureCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  basketItems?: boolean | PictureCountOutputTypeCountBasketItemsArgs
+}
+
+/**
+ * PictureCountOutputType without action
+ */
+export type PictureCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PictureCountOutputType
+   */
+  select?: Prisma.PictureCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * PictureCountOutputType without action
+ */
+export type PictureCountOutputTypeCountBasketItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BasketItemWhereInput
+}
+
 
 export type PictureSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -650,6 +768,8 @@ export type PictureSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   ownerId?: boolean
   owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   purchase?: boolean | Prisma.Picture$purchaseArgs<ExtArgs>
+  basketItems?: boolean | Prisma.Picture$basketItemsArgs<ExtArgs>
+  _count?: boolean | Prisma.PictureCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["picture"]>
 
 export type PictureSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -688,6 +808,8 @@ export type PictureOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type PictureInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   purchase?: boolean | Prisma.Picture$purchaseArgs<ExtArgs>
+  basketItems?: boolean | Prisma.Picture$basketItemsArgs<ExtArgs>
+  _count?: boolean | Prisma.PictureCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PictureIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -701,6 +823,7 @@ export type $PicturePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   objects: {
     owner: Prisma.$UserPayload<ExtArgs>
     purchase: Prisma.$PurchasePayload<ExtArgs> | null
+    basketItems: Prisma.$BasketItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1106,6 +1229,7 @@ export interface Prisma__PictureClient<T, Null = never, ExtArgs extends runtime.
   readonly [Symbol.toStringTag]: "PrismaPromise"
   owner<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   purchase<T extends Prisma.Picture$purchaseArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Picture$purchaseArgs<ExtArgs>>): Prisma.Prisma__PurchaseClient<runtime.Types.Result.GetResult<Prisma.$PurchasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  basketItems<T extends Prisma.Picture$basketItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Picture$basketItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BasketItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1554,6 +1678,30 @@ export type Picture$purchaseArgs<ExtArgs extends runtime.Types.Extensions.Intern
    */
   include?: Prisma.PurchaseInclude<ExtArgs> | null
   where?: Prisma.PurchaseWhereInput
+}
+
+/**
+ * Picture.basketItems
+ */
+export type Picture$basketItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BasketItem
+   */
+  select?: Prisma.BasketItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BasketItem
+   */
+  omit?: Prisma.BasketItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BasketItemInclude<ExtArgs> | null
+  where?: Prisma.BasketItemWhereInput
+  orderBy?: Prisma.BasketItemOrderByWithRelationInput | Prisma.BasketItemOrderByWithRelationInput[]
+  cursor?: Prisma.BasketItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BasketItemScalarFieldEnum | Prisma.BasketItemScalarFieldEnum[]
 }
 
 /**

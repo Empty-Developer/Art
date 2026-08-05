@@ -184,6 +184,7 @@ export type UserWhereInput = {
   password?: Prisma.StringFilter<"User"> | string
   pictures?: Prisma.PictureListRelationFilter
   purchases?: Prisma.PurchaseListRelationFilter
+  basket?: Prisma.XOR<Prisma.BasketNullableScalarRelationFilter, Prisma.BasketWhereInput> | null
 }
 
 export type UserOrderByWithRelationInput = {
@@ -194,6 +195,7 @@ export type UserOrderByWithRelationInput = {
   password?: Prisma.SortOrder
   pictures?: Prisma.PictureOrderByRelationAggregateInput
   purchases?: Prisma.PurchaseOrderByRelationAggregateInput
+  basket?: Prisma.BasketOrderByWithRelationInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -207,6 +209,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   password?: Prisma.StringFilter<"User"> | string
   pictures?: Prisma.PictureListRelationFilter
   purchases?: Prisma.PurchaseListRelationFilter
+  basket?: Prisma.XOR<Prisma.BasketNullableScalarRelationFilter, Prisma.BasketWhereInput> | null
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -239,6 +242,7 @@ export type UserCreateInput = {
   password: string
   pictures?: Prisma.PictureCreateNestedManyWithoutOwnerInput
   purchases?: Prisma.PurchaseCreateNestedManyWithoutBuyerInput
+  basket?: Prisma.BasketCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -249,6 +253,7 @@ export type UserUncheckedCreateInput = {
   password: string
   pictures?: Prisma.PictureUncheckedCreateNestedManyWithoutOwnerInput
   purchases?: Prisma.PurchaseUncheckedCreateNestedManyWithoutBuyerInput
+  basket?: Prisma.BasketUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -259,6 +264,7 @@ export type UserUpdateInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   pictures?: Prisma.PictureUpdateManyWithoutOwnerNestedInput
   purchases?: Prisma.PurchaseUpdateManyWithoutBuyerNestedInput
+  basket?: Prisma.BasketUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -269,6 +275,7 @@ export type UserUncheckedUpdateInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   pictures?: Prisma.PictureUncheckedUpdateManyWithoutOwnerNestedInput
   purchases?: Prisma.PurchaseUncheckedUpdateManyWithoutBuyerNestedInput
+  basket?: Prisma.BasketUncheckedUpdateOneWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -360,6 +367,20 @@ export type UserUpdateOneRequiredWithoutPurchasesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPurchasesInput, Prisma.UserUpdateWithoutPurchasesInput>, Prisma.UserUncheckedUpdateWithoutPurchasesInput>
 }
 
+export type UserCreateNestedOneWithoutBasketInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutBasketInput, Prisma.UserUncheckedCreateWithoutBasketInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBasketInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutBasketNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutBasketInput, Prisma.UserUncheckedCreateWithoutBasketInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBasketInput
+  upsert?: Prisma.UserUpsertWithoutBasketInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutBasketInput, Prisma.UserUpdateWithoutBasketInput>, Prisma.UserUncheckedUpdateWithoutBasketInput>
+}
+
 export type UserCreateWithoutPicturesInput = {
   id?: string
   createdAt?: Date | string
@@ -367,6 +388,7 @@ export type UserCreateWithoutPicturesInput = {
   email: string
   password: string
   purchases?: Prisma.PurchaseCreateNestedManyWithoutBuyerInput
+  basket?: Prisma.BasketCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPicturesInput = {
@@ -376,6 +398,7 @@ export type UserUncheckedCreateWithoutPicturesInput = {
   email: string
   password: string
   purchases?: Prisma.PurchaseUncheckedCreateNestedManyWithoutBuyerInput
+  basket?: Prisma.BasketUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPicturesInput = {
@@ -401,6 +424,7 @@ export type UserUpdateWithoutPicturesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   purchases?: Prisma.PurchaseUpdateManyWithoutBuyerNestedInput
+  basket?: Prisma.BasketUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPicturesInput = {
@@ -410,6 +434,7 @@ export type UserUncheckedUpdateWithoutPicturesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   purchases?: Prisma.PurchaseUncheckedUpdateManyWithoutBuyerNestedInput
+  basket?: Prisma.BasketUncheckedUpdateOneWithoutUserNestedInput
 }
 
 export type UserCreateWithoutPurchasesInput = {
@@ -419,6 +444,7 @@ export type UserCreateWithoutPurchasesInput = {
   email: string
   password: string
   pictures?: Prisma.PictureCreateNestedManyWithoutOwnerInput
+  basket?: Prisma.BasketCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPurchasesInput = {
@@ -428,6 +454,7 @@ export type UserUncheckedCreateWithoutPurchasesInput = {
   email: string
   password: string
   pictures?: Prisma.PictureUncheckedCreateNestedManyWithoutOwnerInput
+  basket?: Prisma.BasketUncheckedCreateNestedOneWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPurchasesInput = {
@@ -453,6 +480,7 @@ export type UserUpdateWithoutPurchasesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   pictures?: Prisma.PictureUpdateManyWithoutOwnerNestedInput
+  basket?: Prisma.BasketUpdateOneWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPurchasesInput = {
@@ -462,6 +490,63 @@ export type UserUncheckedUpdateWithoutPurchasesInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   pictures?: Prisma.PictureUncheckedUpdateManyWithoutOwnerNestedInput
+  basket?: Prisma.BasketUncheckedUpdateOneWithoutUserNestedInput
+}
+
+export type UserCreateWithoutBasketInput = {
+  id?: string
+  createdAt?: Date | string
+  name: string
+  email: string
+  password: string
+  pictures?: Prisma.PictureCreateNestedManyWithoutOwnerInput
+  purchases?: Prisma.PurchaseCreateNestedManyWithoutBuyerInput
+}
+
+export type UserUncheckedCreateWithoutBasketInput = {
+  id?: string
+  createdAt?: Date | string
+  name: string
+  email: string
+  password: string
+  pictures?: Prisma.PictureUncheckedCreateNestedManyWithoutOwnerInput
+  purchases?: Prisma.PurchaseUncheckedCreateNestedManyWithoutBuyerInput
+}
+
+export type UserCreateOrConnectWithoutBasketInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutBasketInput, Prisma.UserUncheckedCreateWithoutBasketInput>
+}
+
+export type UserUpsertWithoutBasketInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutBasketInput, Prisma.UserUncheckedUpdateWithoutBasketInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutBasketInput, Prisma.UserUncheckedCreateWithoutBasketInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutBasketInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutBasketInput, Prisma.UserUncheckedUpdateWithoutBasketInput>
+}
+
+export type UserUpdateWithoutBasketInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  pictures?: Prisma.PictureUpdateManyWithoutOwnerNestedInput
+  purchases?: Prisma.PurchaseUpdateManyWithoutBuyerNestedInput
+}
+
+export type UserUncheckedUpdateWithoutBasketInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  pictures?: Prisma.PictureUncheckedUpdateManyWithoutOwnerNestedInput
+  purchases?: Prisma.PurchaseUncheckedUpdateManyWithoutBuyerNestedInput
 }
 
 
@@ -512,6 +597,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   password?: boolean
   pictures?: boolean | Prisma.User$picturesArgs<ExtArgs>
   purchases?: boolean | Prisma.User$purchasesArgs<ExtArgs>
+  basket?: boolean | Prisma.User$basketArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -543,6 +629,7 @@ export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   pictures?: boolean | Prisma.User$picturesArgs<ExtArgs>
   purchases?: boolean | Prisma.User$purchasesArgs<ExtArgs>
+  basket?: boolean | Prisma.User$basketArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -553,6 +640,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     pictures: Prisma.$PicturePayload<ExtArgs>[]
     purchases: Prisma.$PurchasePayload<ExtArgs>[]
+    basket: Prisma.$BasketPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -956,6 +1044,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   pictures<T extends Prisma.User$picturesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$picturesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PicturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   purchases<T extends Prisma.User$purchasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$purchasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PurchasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  basket<T extends Prisma.User$basketArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$basketArgs<ExtArgs>>): Prisma.Prisma__BasketClient<runtime.Types.Result.GetResult<Prisma.$BasketPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1423,6 +1512,25 @@ export type User$purchasesArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.PurchaseScalarFieldEnum | Prisma.PurchaseScalarFieldEnum[]
+}
+
+/**
+ * User.basket
+ */
+export type User$basketArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Basket
+   */
+  select?: Prisma.BasketSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Basket
+   */
+  omit?: Prisma.BasketOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BasketInclude<ExtArgs> | null
+  where?: Prisma.BasketWhereInput
 }
 
 /**

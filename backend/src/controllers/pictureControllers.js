@@ -75,4 +75,33 @@ const createPicture = async (req, res) => {
   }
 }
 
-export { createPicture, getAllPicture };
+const getOnePicture = async (req, res) => {
+  try {
+    const {id} = req.params
+    const pictures = await prisma.picture.findUnique({
+      where: {id},
+      include: {
+        owner: {
+          select:{
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
+      },
+    })
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        pictures,
+      },
+    })
+  } catch (error) {
+    return res.status(500).json({
+      error: "Internal server error",
+    })
+  }
+}
+
+export { createPicture, getAllPicture, getOnePicture};

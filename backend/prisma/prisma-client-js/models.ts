@@ -11,4 +11,6 @@
 export type * from './models/User.ts'
 export type * from './models/Picture.ts'
 export type * from './models/Purchase.ts'
+export type * from './models/BasketItem.ts'
+export type * from './models/Basket.ts'
 export type * from './commonInputTypes.ts'
